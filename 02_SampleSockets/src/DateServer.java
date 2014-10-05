@@ -13,7 +13,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class EchoServer {
+public class DateServer {
 
 	public static final int SERVER_PORT = 44012;
 	
@@ -63,7 +63,7 @@ public class EchoServer {
 	private boolean started;
 
 	public static void main(String[] args) throws IOException {
-		new EchoServer().run();
+		new DateServer().run();
 	}
 	
 	public void run() throws IOException {

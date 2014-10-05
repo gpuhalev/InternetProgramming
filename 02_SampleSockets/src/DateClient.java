@@ -7,17 +7,18 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class EchoClient {
+public class DateClient {
 
 	private static final String SERVER = "localhost";
 	private final String request;
 
-	public EchoClient(String request) {
+	public DateClient(String request) {
 		 this.request = request;
 	}
 
 	public static void main(String[] args) throws IOException {
-		System.out.println("Enter line: ");
+		System.out.println("Enter date: ");
+		System.out.println("(yyyy-MM-dd format)");
 		
 		final InputStream input = System.in;
 		final InputStreamReader inputStreamReader = new InputStreamReader(input);
@@ -25,18 +26,14 @@ public class EchoClient {
 		
 		final String request = reader.readLine();
 		
-		final EchoClient echoClient = new EchoClient(request);
+		final DateClient echoClient = new DateClient(request);
 		final String response = echoClient.send();
 		
 		System.out.println("Response: " + response);
-		if (!response.equals(request)) {
-			System.err.println("Response different than request!");
-		}
 	}
 
 	private String send() throws UnknownHostException, IOException {
-		final Socket clientSocket = new Socket(SERVER, EchoServer.SERVER_PORT);
-		//get I/O streams
+		final Socket clientSocket = new Socket(SERVER, DateServer.SERVER_PORT);
 		final InputStream inputStream = clientSocket .getInputStream();
 		final OutputStream outputStream = clientSocket.getOutputStream();
 		
@@ -46,16 +43,11 @@ public class EchoClient {
 		
 		final PrintWriter out = new PrintWriter(outputStream);
 		
-		// write to socket what we have red (this is echo server)
 		out.println(request);
-		// always flush writer
 		out.flush();
 		
-		// read from socket
 		final String result = in.readLine();
 		
-		
-		// we should ALWAYS close sockets!
 		clientSocket.close();
 		
 		return result;
