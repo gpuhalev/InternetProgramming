@@ -6,6 +6,5 @@ $(document).ready(function(){
 		}else{
 			alert("Please, input a valid name for list element");
 		}
-	   	
 	});
 });
