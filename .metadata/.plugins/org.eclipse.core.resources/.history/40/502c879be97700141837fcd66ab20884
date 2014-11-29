@@ -1,0 +1,6 @@
+$(document).ready(function(){
+	$("#button").click(function(){
+		var name = $("#name").val();
+	   	$("#list1").append("<li class='pretty'>".name."</li>");
+	});
+});

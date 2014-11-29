@@ -1,0 +1,13 @@
+$(document).ready(function() {
+	alert("Ready");
+	$(".button").click(function(){
+		alert("clicked");
+		$("#list1").append('<li class="pretty">new item</li>');	
+	});	
+	$(".pretty").click(function(){
+		alert("The paragraph was clicked.");
+	});
+	function butFunction(){
+		alert("clicked");
+	};
+});

@@ -1,0 +1,12 @@
+$(document).ready(function(){
+	$("#button").click(function(){
+		var name = $("#name").val();
+		$("#list1").append("<li class='pretty'>"+name+"</li>");
+		if (name.val().length > 0) {
+			$("#list1").append("<li class='pretty'>"+name+"</li>");
+		}else{
+			alert("Please, input a valid name for list element");
+		}
+	   	
+	});
+});

@@ -1,0 +1,12 @@
+$(document).ready(function() {
+	"use strict"
+	alert("Ready");
+	var list = $("#list1");
+	console.log($(".pretty"));
+	$("li.pretty").click(function() {
+		alert("CLICK!");
+	});
+	$("#button").click(function(){
+		alert("Click!");
+	});
+});

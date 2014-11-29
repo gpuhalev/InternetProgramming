@@ -1,0 +1,9 @@
+$(document).ready(function(){
+	$("#button").click(function(){
+		if (inp.val().length > 0) {
+		    // do something
+		}
+		var name = $("#name").val();
+	   	$("#list1").append("<li class='pretty'>"+name+"</li>");
+	});
+});
