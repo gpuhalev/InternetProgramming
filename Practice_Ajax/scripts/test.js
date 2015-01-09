@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	'use strict';
-	var MyURL = "http://jsonplaceholder.typicode.com/posts";
+	var MyURL = "http://jsonplaceholder.typicode.com/posts/";
 	function handleError(error) {
 		console.error("error", error, arguments);
 	}
@@ -24,23 +24,39 @@ $(document).ready(function() {
 	$.ajax(MyURL, {
 	  method: "GET"
 	}).then(processResponse, handleError);
+	var data =  {
+				title: "Input text",
+ 				body: 'random body',
+ 				userId: 666
+			}
 
 	$.ajax(MyURL, {
 	  	type: "POST",
-	  	data: "My Name Is Slim Shady",
+	  	data: data,
 	  	success: function(postResponse) {
-	  		var newUrl = MyURL + postResponse.id;
-	  		$.ajax(newUrl, {
+	  		console.log(postResponse.id);
+	  		$.ajax(MyURL + postResponse.id, {
 	  			method: "GET"
 	  			}).then(apList, handleError);
 	 	}
 	});
 
 	function apList(response){
-		var list = $("#list1");
-		appendToList(list, this);
-		alert('appending to list');
+		console.log(response);
+		var list = $("#list1");	
+		appendToList(list, response);
 	}
+
+	$.ajax({
+		type: "DELETE",
+		url: MyURL + '101',
+			success: function() { 
+				alert('OK');
+				var toremove = $("#list1 .pretty");	
+				console.log(toremove);
+				toremove.remove();
+		}
+	});
 });
 
 
