@@ -18,10 +18,10 @@ $(document).ready(function() {
 			  	dataType: 'json',
 			  	success: function(postResponse) {
 			  		console.log(postResponse);
-			  		var name = Object.keys(postResponse);
-
-			  		var value = $.map(postResponse, function(val, key) { return val; });
-			  		tfield3.text('JSON:{"' + name + '":"' + value + '"}');
+			  		//var name = Object.keys(postResponse);
+			  		//var value = $.map(postResponse, function(val, key) { return val; });
+			  		var obj = JSON.stringify(postResponse);
+			  		tfield3.text('JSON:' + obj);
 			 	}
 			});
 		}
